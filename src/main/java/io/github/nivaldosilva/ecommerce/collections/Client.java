@@ -39,11 +39,10 @@ public class Client {
     @Size(max = 100, message = "Email must have a maximum of 100 characters.")
     private String email;
 
-    @NotBlank(message = "Phone cannot be blank.")
-    @Pattern(regexp = "^\\d{11}$", message = "Phone must contain exactly 11 numeric digits.")
+    @NotBlank(message = "Phone number is required")
+    @Pattern(regexp = "^\\(?\\d{2}\\)?[\\s-]?\\d{4,5}[\\s-]?\\d{4}$", message = "Invalid phone format")
     private String telephone;
 
-    @NotNull(message = "Address cannot be null.")
     @Valid
     private Address address;
 

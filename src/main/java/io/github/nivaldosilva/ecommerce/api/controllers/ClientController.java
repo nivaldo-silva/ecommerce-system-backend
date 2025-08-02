@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import io.github.nivaldosilva.ecommerce.api.dtos.request.ClientRequest;
 import io.github.nivaldosilva.ecommerce.api.dtos.response.ClientResponse;
 import io.github.nivaldosilva.ecommerce.services.interfaces.ClientService;
@@ -37,7 +36,7 @@ public class ClientController {
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
 
-  @GetMapping
+  @GetMapping()
   public ResponseEntity<List<ClientResponse>> findAll(
       @RequestParam(required = false, defaultValue = "") String name) {
     logger.info("Finding all clients");

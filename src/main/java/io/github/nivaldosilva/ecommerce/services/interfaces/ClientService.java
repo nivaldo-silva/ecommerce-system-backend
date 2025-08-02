@@ -1,7 +1,6 @@
 package io.github.nivaldosilva.ecommerce.services.interfaces;
 
 import java.util.List;
-
 import io.github.nivaldosilva.ecommerce.api.dtos.request.ClientRequest;
 import io.github.nivaldosilva.ecommerce.api.dtos.response.ClientResponse;
 

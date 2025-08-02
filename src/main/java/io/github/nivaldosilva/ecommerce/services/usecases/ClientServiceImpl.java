@@ -3,8 +3,6 @@ package io.github.nivaldosilva.ecommerce.services.usecases;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import io.github.nivaldosilva.ecommerce.api.dtos.request.ClientRequest;
 import io.github.nivaldosilva.ecommerce.api.dtos.response.ClientResponse;
 import io.github.nivaldosilva.ecommerce.collections.Client;
@@ -24,7 +22,6 @@ public class ClientServiceImpl implements ClientService {
     private final ClientRepository repository;
 
     @Override
-    @Transactional
     public ClientResponse register(ClientRequest request) {
         Client client = ClientMapper.toClient(request);
         validateUniqueness(client.getCpf(), client.getEmail(), null);
@@ -47,7 +44,6 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    @Transactional
     public ClientResponse update(String id, ClientRequest request) {
         if (!StringUtils.hasText(id)) {
             throw new IllegalArgumentException("The client ID for update cannot be null or empty.");
@@ -62,7 +58,6 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    @Transactional
     public void delete(String id) {
         if (!repository.existsById(id)) {
             throw new ClientNotFoundException("Client with ID " + id + " not found for deletion.");

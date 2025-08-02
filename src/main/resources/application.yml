@@ -8,6 +8,7 @@ server:
 spring:
   data:
     mongodb:
+      database: ecommerce
       host: localhost
       port: 27017      
       auto-index-creation: true
