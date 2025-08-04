@@ -1,5 +1,6 @@
 package io.github.nivaldosilva.ecommerce.api.dtos.request;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.github.nivaldosilva.ecommerce.collections.vo.Address;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
@@ -9,6 +10,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public record ClientRequest(
 
 @NotBlank(message = "Name cannot be blank.") 

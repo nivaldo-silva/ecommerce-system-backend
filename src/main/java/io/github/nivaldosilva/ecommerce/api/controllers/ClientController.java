@@ -56,7 +56,7 @@ public class ClientController {
   @PutMapping("/{id}")
   public ResponseEntity<ClientResponse> update(
       @PathVariable String id,
-      @RequestBody @Valid ClientRequest request) {
+      @RequestBody ClientRequest request) {
     logger.info("Updating client with ID: {}", id);
     ClientResponse response = clientService.update(id, request);
     logger.info("Client updated successfully");
